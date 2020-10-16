@@ -12,9 +12,21 @@ for i in *.png
 do
 	INDEX=$((INDEX+1))
 	size=`convert $i -format "%wx%h" info:`
-	#echo $size
+	echo $size
 	
 	case $size in
+		"542x992")
+			convert -extract 540x960+1+31 "$i" "$INDEX.png"
+		;;
+		"642x527")
+			convert -extract 640x480+1+46 "$i" "$INDEX.png"
+		;;
+		"962x672")
+			convert -extract 960x600+1+31 "$i" "$INDEX.png"
+		;;
+		"1368x800")
+			convert -extract 1366x768+1+31 "$i" "$INDEX.png"
+		;;
 		"1282x772")
 			convert -extract 1280x720+1+51 "$i" "$INDEX.png"
 			;;
